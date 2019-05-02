@@ -7,7 +7,9 @@
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-icons": "^2.2.7",
-    "react-scripts": "1.0.17"
+    "react-scripts": "1.0.17",
+    "react-toast-notifications": "^1.4.0",
+    "react-toastify": "^5.1.0"
   },
   "scripts": {
     "start": "react-scripts start",
