@@ -54,8 +54,8 @@ export default class Post extends Component {
     // const editing = this.state.editing
     // const showMasterMenu = this.state.showMasterMenu
     const { editing, showMasterMenu } = this.state;
-    const { text, date } = this.props;
-
+    const { text, date, id } = this.props;
+    
     return (
       // Main body of post
       <section className="Post__parent" onClick={this.hideMasterMenu}>
@@ -67,9 +67,8 @@ export default class Post extends Component {
           {/* Drop-down menu. Remember that the "showMasterMenu" variable has been destructured off of this.state */}
           <div className="Post__master-menu" style={{ display: showMasterMenu ? 'flex' : 'none' }}>
             <span onClick={this.showEdit}>Edit</span>
-            <span onClick={() => {this.props.deletePostFn}}>Delete</span>          </div>
+            <span onClick={() => this.props.deletePostFn(id)}>Delete</span>          </div>
         </div>
-
         {/* This is where all the meta data of the post will go (who, when, where) */}
         <div className="Post__meta-data">
           <div className="Post__profile-picture">
