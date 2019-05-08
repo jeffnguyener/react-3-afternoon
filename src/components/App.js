@@ -7,10 +7,6 @@ import Header from './Header/Header';
 import Compose from './Compose/Compose';
 import Post from './Post/Post';
 
-// Toast notification dependencies
-import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-
 class App extends Component {
   constructor() {
     super();
@@ -26,9 +22,8 @@ class App extends Component {
 
   componentDidMount() {
     axios.get('https://practiceapi.devmountain.com/api/posts').then(results => {
-      this.setState({ posts: results.data })
-      toast.success('It worked')
-    }).catch((err) => toast.error('It broke'));
+      this.setState({ posts: results.data });
+    });
   }
 
   updatePost(id, text) {
@@ -61,7 +56,7 @@ class App extends Component {
 
         <section className="App__content">
 
-          <Compose />
+          <Compose createPostFn={this.createPost}/>
 
           {
             posts.map(post => (
